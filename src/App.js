@@ -20,6 +20,7 @@ class App extends Component {
 	}
 
 	componentWillMount() {
+		console.log(this.props.store.getState());  
 		fetch('https://jsonplaceholder.typicode.com/users')
 		.then(response => response.json())
 		.then(users => this.setState({ robots: users}));
@@ -33,7 +34,7 @@ class App extends Component {
 
 		return(
 			<div className='tc'>
-				<h1 className='f1'>RoboFriends</h1>
+				<h1 className='f1'>Not RoboFriends</h1>
 				<SearchBox searchChange={this.onSearchChange }/>
 				<Scroll>
 					<CardList robots= {filteredRobots}/>
